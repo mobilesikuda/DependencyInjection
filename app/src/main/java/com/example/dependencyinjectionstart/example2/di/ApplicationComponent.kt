@@ -11,17 +11,27 @@ interface ApplicationComponent {
 
     fun inject(mainActivity: MainActivity)
 
-    @Component.Builder
-    interface ApplicftionComponentBuilder{
+//    @Component.Builder
+//    interface ApplicftionComponentBuilder{
+//
+//        @BindsInstance
+//        fun context(context: Context) : ApplicftionComponentBuilder
+//
+//        @BindsInstance
+//        fun currenttime(currenttime: CurrentTime): ApplicftionComponentBuilder
+//
+//        fun build(): ApplicationComponent
+//
+//
+//    }
 
-        @BindsInstance
-        fun context(context: Context) : ApplicftionComponentBuilder
+    @Component.Factory
+    interface ApplicationComponentFacory{
 
-        @BindsInstance
-        fun currenttime(currenttime: CurrentTime): ApplicftionComponentBuilder
-
-        fun build(): ApplicationComponent
-
+        fun create(
+            @BindsInstance context: Context,
+            @BindsInstance currenttime: CurrentTime
+        ): ApplicationComponent
 
     }
 
