@@ -2,28 +2,19 @@ package com.example.dependencyinjectionstart.example2.di
 
 import android.content.Context
 import com.example.dependencyinjectionstart.example2.presentation.MainActivity
+import com.example.dependencyinjectionstart.example2.presentation.MainActivity2
 import dagger.BindsInstance
 import dagger.Component
 import dagger.Module
+import javax.inject.Scope
+import javax.inject.Singleton
 
-@Component(modules = [DataModule::class, DomainModule::class])
+@ApplicationScope
+@Component(modules = [DataModule::class, DomainModule::class, ViewModelModule::class])
 interface ApplicationComponent {
 
     fun inject(mainActivity: MainActivity)
-
-//    @Component.Builder
-//    interface ApplicftionComponentBuilder{
-//
-//        @BindsInstance
-//        fun context(context: Context) : ApplicftionComponentBuilder
-//
-//        @BindsInstance
-//        fun currenttime(currenttime: CurrentTime): ApplicftionComponentBuilder
-//
-//        fun build(): ApplicationComponent
-//
-//
-//    }
+    fun inject(mainActivity: MainActivity2)
 
     @Component.Factory
     interface ApplicationComponentFacory{
