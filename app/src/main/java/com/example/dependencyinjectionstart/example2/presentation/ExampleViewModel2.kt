@@ -6,7 +6,8 @@ import com.example.dependencyinjectionstart.example2.domain.ExampleRepository
 import javax.inject.Inject
 
 class ExampleViewModel2 @Inject constructor(
-    private val repository: ExampleRepository
+    private val repository: ExampleRepository,
+    private val id: String
 ): ViewModel() {
 
     fun method() {
